@@ -7,4 +7,7 @@ module.exports = {
     // extend your webpack configuration here
     return config;
   },
+  images: {
+    domains: ['keaneauctioneers.com', 'photos-a.propertyimages.ie', 'b.dmlimg.com', 'www.kehoeproperty.com']
+  }
 };

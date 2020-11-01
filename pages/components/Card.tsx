@@ -1,21 +1,27 @@
 import { ReactElement, ReactNode } from 'react';
+import Image from 'next/image';
 
 interface Props {
   children: {
     media?: string;
     title: string;
-    content: ReactNode;
+    content?: ReactNode;
     tags?: ReactNode;
+    url?: string;
   };
 }
 
-function Card({ children: { media, title, content, tags } }: Props): ReactElement {
+function Card({ children: { media, title, content, tags, url } }: Props): ReactElement {
   return (
-    <div className="max-w-sm rounded overflow-hidden shadow-lg">
-      {media && <img className="w-full" src={media} alt="Image house" />}
+    <div className="max-w-full rounded overflow-hidden shadow-lg">
+      {media && <Image unsized className="w-full" src={media} alt="Image house" />}
       <div className="px-6 py-4">
-        <div className="font-bold text-xl mb-2">{title}</div>
-        <p className="text-gray-700 text-base">{content}</p>
+        {url ? 
+          <div className="font-bold text-xl mb-2"><a target="_blank" href={url}>{title}</a></div>
+        :
+          <div className="font-bold text-xl mb-2">{title}</div>
+        }
+        {content && <p className="text-gray-700 text-base">{content}</p>}
       </div>
       {tags && <div className="px-6 pt-4 pb-2">{tags}</div>}
     </div>

@@ -8,6 +8,6 @@ module.exports = {
     return config;
   },
   images: {
-    domains: ['keaneauctioneers.com', 'photos-a.propertyimages.ie', 'b.dmlimg.com', 'www.kehoeproperty.com']
-  }
+    domains: ['keaneauctioneers.com', 'photos-a.propertyimages.ie', 'b.dmlimg.com', 'www.kehoeproperty.com'],
+  },
 };

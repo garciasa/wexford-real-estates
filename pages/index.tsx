@@ -1,29 +1,16 @@
-import { ReactNode } from 'react';
+import { ReactElement, ReactNode } from 'react';
+import { Box, useColorMode } from '@chakra-ui/core';
 import { useQuery } from 'react-query';
 import { format } from 'date-fns';
 import Card from '../components/Card';
 import Tag from '../components/Tag';
 import Header from '../components/Header';
-
-interface House {
-  id: string;
-  url: string;
-  price: string;
-  title: string;
-  beds: number;
-  baths: number;
-  provider: string;
-  eircode: string;
-  date_renewed: string;
-  first_listed: string;
-  property_id: string;
-  photo: string;
-}
+import getAllHouses from '../lib/api';
+import { House } from '../model/interfaces';
+import SideNav from '../components/SideNav';
 
 function Home_old(): ReactNode {
-  const { isLoading, error, data } = useQuery<House[], any>('fetchAllHouses', () =>
-    fetch('https://housecrawler.azurewebsites.net/api/v1/houses').then((resp) => resp.json()),
-  );
+  const { isLoading, error, data } = useQuery<House[], any>('allHouses', getAllHouses);
 
   return (
     <div className="grid gap-4 grid-cols-1 m-4 lg:grid-cols-4">
@@ -57,8 +44,30 @@ function Home_old(): ReactNode {
   );
 }
 
-function Home(): ReactNode {
-  return <Header />;
+interface Props {
+  children: ReactElement;
+  rest: Record<string, unknown>;
+}
+
+function Home({ children, ...rest }: Props): ReactNode {
+  const { colorMode } = useColorMode();
+  return (
+    <>
+      <Header />
+      <Box>
+        <SideNav display={['none', null, 'block']} maxWidth="18rem" width="full" />
+        <Box pl={[0, null, '18rem']} mt="4rem">
+          <Box
+            as="section"
+            backgroundColor={colorMode === 'light' ? 'gray.100' : 'gray.900'}
+            minHeight="calc(100vh - 4rem)"
+          >
+            <Box {...rest}>{children}</Box>
+          </Box>
+        </Box>
+      </Box>
+    </>
+  );
 }
 
 export default Home;

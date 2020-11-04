@@ -2,9 +2,12 @@ import { useColorMode, Box, Flex, Stack, Text } from '@chakra-ui/core';
 import { ReactElement } from 'react';
 import { BsHouse, BsNewspaper, BsArchive } from 'react-icons/bs';
 
-function SideNav(props: Record<string, unknown>): ReactElement {
+interface Props {
+  [x: string]: unknown;
+}
+
+function SideNav({ ...props }: Props): ReactElement {
   const { colorMode } = useColorMode();
-  console.log(props);
   return (
     <Box
       backgroundColor={colorMode === 'light' ? 'white' : 'gray.800'}

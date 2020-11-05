@@ -29,14 +29,14 @@ function SideNav({ ...props }: Props): ReactElement {
                 <BsHouse color={colorMode === 'light' ? '#2D3748' : '#fff'} />
                 <Text ml={3} fontWeight="bold">
                   <NextLink href="/">
-                    <a>Dashboard</a>
+                    <a>Stats</a>
                   </NextLink>
                 </Text>
               </Flex>
               <Flex align="center" p={1}>
                 <BsNewspaper color={colorMode === 'light' ? '#2D3748' : '#fff'} />
                 <Text ml={3} fontWeight="bold">
-                  <NextLink href="/last">Last</NextLink>
+                  <NextLink href="/last">Last Week</NextLink>
                 </Text>
               </Flex>
               <Flex align="center" p={1}>

@@ -12,3 +12,10 @@ export interface House {
   property_id: string;
   photo: string;
 }
+
+export interface Stat {
+  id: string;
+  name: string;
+  start_date: string;
+  end_date: string;
+}

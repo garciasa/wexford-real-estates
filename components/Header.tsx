@@ -1,4 +1,4 @@
-import { Box, Flex, useColorMode, IconButton, Input } from '@chakra-ui/core';
+import { Box, Flex, useColorMode, IconButton, Text } from '@chakra-ui/core';
 import React, { ReactElement } from 'react';
 import { BsMoon, BsSun, BsHouse } from 'react-icons/bs';
 
@@ -23,8 +23,10 @@ function Header(): ReactElement {
           <Box>
             <Flex>
               <BsHouse size={24} />
+              <Text ml={2}>HouseCrawler</Text>
             </Flex>
           </Box>
+          {/*
           <Input
             display={['none', null, 'block']}
             width="100%"
@@ -34,6 +36,7 @@ function Header(): ReactElement {
             placeholder={`Search for Houses `}
             bg={colorMode === 'light' ? 'gray.100' : 'gray.700'}
           />
+          */}
           <Flex align="center" color="gray.500">
             <IconButton
               aria-label={`Switch to ${colorMode === 'light' ? 'dark' : 'light'} mode`}

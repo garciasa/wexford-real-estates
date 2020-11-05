@@ -2,7 +2,7 @@ import { House } from '../model/interfaces';
 
 const API_URL = 'https://housecrawler.azurewebsites.net/api/v1';
 
-export default function getAllHouses(): Promise<House[]> {
+export function getAllHouses(): Promise<House[]> {
   return fetch(`${API_URL}/houses`).then((resp) => resp.json());
 }
 

@@ -1,5 +1,6 @@
-import { ReactElement, ReactNode } from 'react';
+import React, { ReactElement, ReactNode } from 'react';
 import { Box, useColorMode } from '@chakra-ui/core';
+import Head from 'next/head';
 import Header from './Header';
 import SideNav from './SideNav';
 
@@ -12,6 +13,9 @@ function App({ children, ...rest }: Props): ReactElement {
   const { colorMode } = useColorMode();
   return (
     <>
+      <Head>
+        <title>Selling houses in Wexford</title>
+      </Head>
       <Header />
       <Box>
         <SideNav display={['none', null, 'block']} maxWidth="18rem" width="full" />

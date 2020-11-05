@@ -1,5 +1,6 @@
+import React, { ReactElement } from 'react';
+import NextLink from 'next/link';
 import { useColorMode, Box, Flex, Stack, Text } from '@chakra-ui/core';
-import { ReactElement } from 'react';
 import { BsHouse, BsNewspaper, BsArchive } from 'react-icons/bs';
 
 interface Props {
@@ -8,6 +9,7 @@ interface Props {
 
 function SideNav({ ...props }: Props): ReactElement {
   const { colorMode } = useColorMode();
+
   return (
     <Box
       backgroundColor={colorMode === 'light' ? 'white' : 'gray.800'}
@@ -26,19 +28,21 @@ function SideNav({ ...props }: Props): ReactElement {
               <Flex align="center" p={1}>
                 <BsHouse color={colorMode === 'light' ? '#2D3748' : '#fff'} />
                 <Text ml={3} fontWeight="bold">
-                  Dashboard
+                  <NextLink href="/">
+                    <a>Dashboard</a>
+                  </NextLink>
                 </Text>
               </Flex>
               <Flex align="center" p={1}>
                 <BsNewspaper color={colorMode === 'light' ? '#2D3748' : '#fff'} />
                 <Text ml={3} fontWeight="bold">
-                  Last Week
+                  <NextLink href="/last">Last</NextLink>
                 </Text>
               </Flex>
               <Flex align="center" p={1}>
                 <BsArchive color={colorMode === 'light' ? '#2D3748' : '#fff'} />
                 <Text ml={3} fontWeight="bold">
-                  All
+                  <NextLink href="/all">All</NextLink>
                 </Text>
               </Flex>
             </Stack>

@@ -3,10 +3,10 @@ import { Flex, Text, Spinner } from '@chakra-ui/core';
 import { useQuery } from 'react-query';
 import App from '../components/App';
 import HouseCard from '../components/HouseCard';
-import getAllHouses from '../lib/api';
+import { getAllHouses } from '../lib/api';
 import { House } from '../model/interfaces';
 
-function Last(): ReactNode {
+function AllHouses(): ReactNode {
   const { isLoading, error, data } = useQuery<House[], unknown>('allHouses', getAllHouses);
   return (
     <App width="full" maxWidth="1280px" mx="auto" px={6} py={6}>
@@ -20,7 +20,7 @@ function Last(): ReactNode {
         </Flex>
       ) : (
         <>
-          {data.splice(0, 7).map((h) => (
+          {data.map((h) => (
             <HouseCard
               key={h.id}
               title={h.title}
@@ -42,4 +42,4 @@ function Last(): ReactNode {
   );
 }
 
-export default Last;
+export default AllHouses;

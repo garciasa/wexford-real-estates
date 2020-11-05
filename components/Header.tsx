@@ -1,4 +1,4 @@
-import { Box, Flex, useColorMode, IconButton, InputGroup, InputLeftElement, Input } from '@chakra-ui/core';
+import { Box, Flex, useColorMode, IconButton, Input } from '@chakra-ui/core';
 import React, { ReactElement } from 'react';
 import { BsMoon, BsSun, BsHouse } from 'react-icons/bs';
 

@@ -1,4 +1,5 @@
-import { Box, Image, Flex, Badge, Stack, Text, AspectRatio, useColorMode } from '@chakra-ui/core';
+import { Box, Flex, Badge, Stack, AspectRatio, useColorMode } from '@chakra-ui/core';
+import Image from 'next/image';
 import React, { ReactElement } from 'react';
 interface Props {
   title: string;
@@ -16,7 +17,7 @@ function HouseCard({ title, image, url, price, baths, beds, provider }: Props): 
     <Box borderWidth="1px" borderRadius={8} p={1} mb={2} backgroundColor={colorMode === 'light' ? 'white' : 'gray.800'}>
       <Flex>
         <AspectRatio w="100%" maxWidth="120px" ratio={1}>
-          <Image src={image} alt={title} />
+          <Image src={image} alt={title} unsized />
         </AspectRatio>
         <Stack ml={3} mt={2} mb={2}>
           <Flex align="baseline">
@@ -28,9 +29,11 @@ function HouseCard({ title, image, url, price, baths, beds, provider }: Props): 
             </a>
           </Box>
           <Flex align="center">
-            <Badge colorScheme="green">{beds} beds</Badge>
+            <Badge colorScheme="green" textTransform="lowercase">
+              {beds} beds
+            </Badge>
             {baths !== 0 && (
-              <Badge ml={2} colorScheme="blue">
+              <Badge ml={2} colorScheme="blue" textTransform="lowercase">
                 {baths} baths
               </Badge>
             )}

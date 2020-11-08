@@ -24,7 +24,7 @@ function Stats({stats, last}:Props): ReactElement {
     >
       <StatsBox main={last} footer="Added last 7 days" />
       <StatsBox main={stats.general.total} footer="Total" />
-      <StatsBox main={format(parsed,"HH:mm")} label={format(parsed, "dd/mm/yy")} footer="Last Parsed" />
+      <StatsBox main={format(parsed,"HH:mm")} label={format(parsed, "dd/MM/yy")} footer="Last Parsed" />
     </Flex>
   );
 }

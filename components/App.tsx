@@ -15,6 +15,8 @@ function App({ children, ...rest }: Props): ReactElement {
     <>
       <Head>
         <title>Selling houses in Wexford</title>
+        <meta name="description" content="Houses selling in Wexford, Ireland."></meta>
+        <meta name="robots" content="index, follow" />
       </Head>
       <Header />
       <Box>

@@ -30,6 +30,7 @@ function Last(): ReactNode {
               baths={h.baths}
               beds={h.beds}
               provider={h.provider}
+              date_renewed={h.date_renewed}
             />
           ))}
 

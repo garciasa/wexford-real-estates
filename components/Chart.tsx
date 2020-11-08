@@ -22,8 +22,8 @@ function Chart({data}:Props): ReactElement {
       <Text mb={2} fontWeight="bold">
         {'Published Houses 4 beds (myhome.ie)'}
       </Text>
-      <ResponsiveContainer>
-        <LineChart  data={filtered_data} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
+      <ResponsiveContainer width={'99%'} height={300}>
+        <LineChart data={filtered_data} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
           <Line type="monotone" dataKey="houses" stroke="#8884d8" />
           <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
           <Tooltip />

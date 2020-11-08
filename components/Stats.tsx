@@ -1,12 +1,18 @@
 import { Flex } from '@chakra-ui/core';
+import { format } from 'date-fns';
 import React, { ReactElement } from 'react';
-import { useQuery } from 'react-query';
-import { getStats } from '../lib/api';
-import { Stat } from '../model/interfaces';
 import StatsBox from './StatsBox';
 
-function Stats(): ReactElement {
-  const { isLoading, error, data } = useQuery<Stat[], unknown>('Stats', getStats);
+interface Props{
+  stats: {
+    crawler: Record<string, any>;
+    general: Record<string, any>;
+  }, 
+  last: number
+}
+
+function Stats({stats, last}:Props): ReactElement {
+  const parsed = new Date(stats.crawler[0].end_date);
   return (
     <Flex
       direction={['column', 'column', 'row']}
@@ -16,9 +22,9 @@ function Stats(): ReactElement {
       align="center"
       justify="space-around"
     >
-      <StatsBox main={3} footer="Added last 7 days" />
-      <StatsBox main={123} footer="Total" />
-      <StatsBox main={'12:54'} label="05/11/2020" footer="Last Parsed" />
+      <StatsBox main={last} footer="Added last 7 days" />
+      <StatsBox main={stats.general.total} footer="Total" />
+      <StatsBox main={format(parsed,"HH:mm")} label={format(parsed, "dd/mm/yy")} footer="Last Parsed" />
     </Flex>
   );
 }

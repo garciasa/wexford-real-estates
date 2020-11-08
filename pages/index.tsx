@@ -13,7 +13,7 @@ function Home({stats, last, chart}): ReactNode {
   );
 }
 
-export async function getServerSideProps(){
+export async function getStaticProps(){
   const stats = await getStats();
   const last = await getLastHouses();
   const chart = await getDataChart();
@@ -22,7 +22,8 @@ export async function getServerSideProps(){
       stats,
       last: last.length,
       chart,
-    }
+    },
+    revalidate: 600
   }
 }
 

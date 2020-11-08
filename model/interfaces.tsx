@@ -19,3 +19,9 @@ export interface Stat {
   start_date: string;
   end_date: string;
 }
+
+export interface StatChart {
+  year: number;
+  month_str: string;
+  houses: number;
+}

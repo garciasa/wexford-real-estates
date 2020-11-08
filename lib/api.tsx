@@ -1,4 +1,4 @@
-import { House, Stat } from '../model/interfaces';
+import { House, Stat, StatChart } from '../model/interfaces';
 
 const API_URL = 'https://housecrawler.azurewebsites.net/api/v1';
 
@@ -12,4 +12,8 @@ export function getLastHouses(): Promise<House[]> {
 
 export function getStats(): Promise<Stat[]> {
   return fetch(`${API_URL}/stats`).then((resp) => resp.json());
+}
+
+export function getDataChart(beds:number=4): Promise<StatChart[]> {
+  return fetch(`${API_URL}/stats/chart?beds=${beds}`).then((resp) => resp.json());
 }

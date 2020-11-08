@@ -21,7 +21,7 @@ export async function getStaticProps(){
       stats,
       last: last.length
     },
-    revalidate: 15,
+    revalidate: 900, // 15 mins
   }
 }
 

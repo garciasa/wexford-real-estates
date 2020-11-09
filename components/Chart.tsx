@@ -7,6 +7,7 @@ interface Props {
 }
 
 function Chart({data}:Props): ReactElement {
+  console.log(data);
   const filtered_data = data.filter(y => y.year === 2020);
   return (
     <Flex

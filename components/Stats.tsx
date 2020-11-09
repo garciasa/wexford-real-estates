@@ -1,17 +1,16 @@
 import { Flex } from '@chakra-ui/core';
 import { format } from 'date-fns';
 import React, { ReactElement } from 'react';
+import { StatsApi } from '../model/interfaces';
 import StatsBox from './StatsBox';
 
 interface Props{
-  stats: {
-    crawler: Record<string, any>;
-    general: Record<string, any>;
-  }, 
-  last: number
+  stats: StatsApi;
+  last: number;
 }
 
-function Stats({stats, last}:Props): ReactElement {
+function Stats({stats, last}: Props): ReactElement {
+  console.log(stats);
   const parsed = new Date(stats.crawler[0].end_date);
   return (
     <Flex

@@ -20,6 +20,11 @@ export interface Stat {
   end_date: string;
 }
 
+export interface StatsApi{
+    crawler: Stat;
+    general: Record<string, any>;
+}
+
 export interface StatChart {
   year: number;
   month_str: string;

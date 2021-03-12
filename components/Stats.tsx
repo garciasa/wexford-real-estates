@@ -4,12 +4,12 @@ import React, { ReactElement } from 'react';
 import { StatsApi } from '../model/interfaces';
 import StatsBox from './StatsBox';
 
-interface Props{
+interface Props {
   stats: StatsApi;
   last: number;
 }
 
-function Stats({stats, last}: Props): ReactElement {
+function Stats({ stats, last }: Props): ReactElement {
   console.log(stats);
   const parsed = new Date(stats.crawler[0].end_date);
   return (
@@ -23,7 +23,7 @@ function Stats({stats, last}: Props): ReactElement {
     >
       <StatsBox main={last} footer="Added last 7 days" />
       <StatsBox main={stats.general.total} footer="Total" />
-      <StatsBox main={format(parsed,"HH:mm")} label={format(parsed, "dd/MM/yy")} footer="Last Parsed" />
+      <StatsBox main={format(parsed, 'HH:mm')} label={format(parsed, 'dd/MM/yy')} footer="Last Parsed" />
     </Flex>
   );
 }
